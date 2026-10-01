@@ -1,0 +1,31 @@
+1. Predecir la salida de cada uno.
+    En Programa A , en total, imprimira tres veces "local contador = 1" y una vez el "global contador = 0"
+    debido a que en cada llamada de la funcion se está creando una nueva variable contador local.
+    En programa B, se imprimirá "global contador = 3", ya que se está modificando la variable global.
+
+2. Sorpresa? No :D 
+3. Refactorizar para eliminar la variable global: pasar el
+contador por parámetro y retornar el nuevo valor:
+int incrementar(int contador) { return contador +1; }
+
+#include <stdio.h>
+int incrementar(int x) { 
+    return x +1; 
+}
+int main(void) {
+    int contador=0;
+ contador = incrementar(contador);
+ contador = incrementar(contador);
+ contador = incrementar(contador);
+ printf("global contador = %d\n", contador);
+ return 0;
+}
+
+4. Discusion: ¿Por qué las variables globales son una mala
+práctica en Ingeniería de Software? Mencionar al menos
+tres razones (acoplamiento, dificultad de testeo,
+condiciones de carrera en concurrencia).
+
+Dificultad de testeo: debido a que se puede modificar en cualquier parte del codigo es dificil estar controlando su valor
+Acoplamiento: Porque al introducirlo en una parte del codigo, se debe verificar que no altere algún otro proceso.
+Condiciones de carrera en concurrencia: Que varios procesos modifiquen el valor a la vez, por lo el programa podria confundir que valor darle al momento de compilar. Entonces, importaria el orden de los sub-algoritmos.

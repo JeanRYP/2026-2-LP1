@@ -1,0 +1,21 @@
+Pregunta1: 1. ¿Por qué n sigue siendo 10 en main?
+Porque, por defecto en c, el argumento se pasa por valor. Es decir, se pasa una copia mientras que el valor original no se modifica.
+
+Pregunta2: 2. ¿Cómo se resolvería sin usar punteros?
+usando return con el resultado final del incremento y asignandole eso a la variable original
+Pregunta3: 3. Reescribir incrementar para que retorne el valor
+modificado.
+
+#include <stdio.h>
+
+int incrementar(int x) {
+ x = x + 1;
+    return x;
+}
+int main(void) {
+ int n = 10;
+ n=incrementar(n);
+ printf("Despues de llamar: n = %d\n", n);
+ return 0;
+
+}
